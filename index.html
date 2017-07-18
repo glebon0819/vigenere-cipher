@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>Caesar Test</title>
+		<script src="caesar.js"></script>
+		<script src="vigenere.js"></script>
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+		<script>
+			
+			$(document).ready(function(){
+				$("#encrypt").click(function(){
+					const cipher = new vigenereCipher($("#text").val(), $("#key").val());
+					var encryptedText = cipher.encrypt();
+					if(encryptedText){
+						$("#text").val(encryptedText);
+					}
+				});
+				
+			});
+		</script>
+		<style>
+			#container {
+				width:50%;
+				margin-left: auto;
+    		margin-right: auto;
+			}
+			.center {
+				width:100%;
+			}
+		</style>
+	</head>
+	<body>
+		<div id="container">
+			<h2>This page was designed to test the Vigenere cipher class that I made.</h2>
+			<form>
+				<p>Message</p>
+				<textarea class="center" id="text" placeholder="Message you want to encode" rows="5"></textarea><br />
+				<p>Key</p>
+				<input type="text" id="key" placeholder="Key (string)" /><br /><br />
+				<button type="button" id="encrypt">Encrypt</button>
+			</form>
+			
+		</div>
+	</body>
+</html>
