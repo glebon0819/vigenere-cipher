@@ -16,7 +16,19 @@
 						$("#text").val(encryptedText);
 					}
 				});
-				
+				$("#decrypt").click(function(){
+	
+					const cipher = new vigenereCipher($("#text").val(), $("#key").val());
+
+					var decryptedText = cipher.decrypt();
+
+					if(decryptedText){
+
+						$("#text").val(decryptedText);
+
+					}
+
+				});
 			});
 		</script>
 		<style>
@@ -39,6 +51,7 @@
 				<p>Key</p>
 				<input type="text" id="key" placeholder="Key (string)" /><br /><br />
 				<button type="button" id="encrypt">Encrypt</button>
+				<button type="button" id="decrypt">Decrypt</button>
 			</form>
 			
 		</div>
